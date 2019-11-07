@@ -3,6 +3,12 @@ import './Tanks.css';
 
 class Tank extends Component {
 
+state = {
+    tanks: [],
+    displayName: [],
+    temperature: []
+}
+
     getTankTemperature = (timeout = 0, fail = false) => {
         const response = {
             tanks: [
@@ -33,13 +39,22 @@ class Tank extends Component {
 }
 
 //componentDidMount
+
+
 //componentDidUpdate
 
-// render() {
-//     return (
 
-//     )
-// }
+render() {
+    return (
+        <Container fluid>
+            <Col size="md-6">
+            <Tr>
+
+            </Tr>
+            </Col>
+        </Container>
+    )
+}
 
 }
 
