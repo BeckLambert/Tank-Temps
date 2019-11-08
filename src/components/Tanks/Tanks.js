@@ -30,18 +30,18 @@ class Tank extends Component {
 
     render() {
         return (
-            <Container fluid>
-                <Col size="md-6">
+            
+                <col size="md-6">
                     {this.state.tanks.map(tank => (
                         <>
-                            <Tr
+                            <tr
                                 key={tank}
                                 id="id"
                                 className="displayName"
                                 value={this.state.displayName}
                                 to="/tank/:id"
                             />
-                            <Td
+                            <td
                                 key={tank}
                                 id="id"
                                 className="temerature"
@@ -50,8 +50,9 @@ class Tank extends Component {
                             />
                         </>
                     ))}
-                </Col>
-            </Container>
+                </col>
+           
+            
         )
     }
 
