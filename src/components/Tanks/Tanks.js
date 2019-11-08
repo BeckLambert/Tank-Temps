@@ -1,22 +1,23 @@
 import React, { Component } from 'react';
 import './Tanks.css';
 
+
 class Tank extends Component {
 
-    state = {
-        tanks: [],
-        displayName: [],
-        temperature: []
-    }
+    // state = {
+    //     tanks: [],
+    //     displayName: [],
+    //     temperature: []
+    // }
 
-    getTankTemperature = (timeout = 0, fail = false) => {
-        const response = {
-            tanks: [
-                { id: '1', displayName: 'FV 1', temperature: 67 }
-            ],
-        };
-        return (response);
-    }
+    // getTankTemperature = (timeout = 0, fail = false) => {
+    //     const response = {
+    //         tanks: [
+    //             { id: '1', displayName: 'FV 1', temperature: 67 }
+    //         ],
+    //     };
+    //     return (response);
+    // }
 
     //componentDidMount
     // componentDidMount() {
@@ -30,27 +31,27 @@ class Tank extends Component {
 
     render() {
         return (
-            
-                <col size="md-6">
-                    {this.state.tanks.map(tank => (
-                        <>
-                            <tr
-                                key={tank}
-                                id="id"
-                                className="displayName"
-                                value={this.state.displayName}
-                                to="/tank/:id"
-                            />
-                            <td
-                                key={tank}
-                                id="id"
-                                className="temerature"
-                                value={this.state.temperature}
-                                to="tank/:id"
-                            />
-                        </>
-                    ))}
-                </col>
+            <p>tst</p>
+                // <col size="md-6">
+                //     {this.state.tanks.map(tank => (
+                //         <>
+                //             <tr
+                //                 key={tank}
+                //                 id="id"
+                //                 className="displayName"
+                //                 value={this.state.displayName}
+                //                 to="/tank/:id"
+                //             />
+                //             <td
+                //                 key={tank}
+                //                 id="id"
+                //                 className="temerature"
+                //                 value={this.state.temperature}
+                //                 to="tank/:id"
+                //             />
+                //         </>
+                //     ))}
+                // </col>
            
             
         )
