@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import SignOutButton from '../../Pages/SignOut';
 import * as ROUTES from '../../Pages/Routes';
-import Navigation from '../../Pages/Navigation';
 import Tank from "../Tanks/Tanks"
 // import { withFirebase } from '../Firebase';
 // import LandingPage from '../Landing';
@@ -44,40 +43,40 @@ const Nav = ({ authUser }) => (
     </ul>
   );
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      authUser: null,
-    };
-  }
+// class App extends Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       authUser: null,
+//     };
+//   }
 
-componentDidMount() {
-    this.listener = this.props.firebase.auth.onAuthStateChanged(
-      authUser => {
-        authUser
-          ? this.setState({ authUser })
-          : this.setState({ authUser: null });
-      },
-    );
-  }
+// componentDidMount() {
+//     this.listener = this.props.firebase.auth.onAuthStateChanged(
+//       authUser => {
+//         authUser
+//           ? this.setState({ authUser })
+//           : this.setState({ authUser: null });
+//       },
+//     );
+//   }
 
-componentWillUnmount() {
-    this.listener();
-  }
+// componentWillUnmount() {
+//     this.listener();
+//   }
 
-  render() {
-    return (
-      <Router>
-        <div>
-          <Nav authUser={this.state.authUser} />
-          <hr/>
-          ...
-        </div>
-      </Router>
-    );
-  }
-}
+//   render() {
+//     return (
+//       <Router>
+//         <div>
+//           <Nav authUser={this.state.authUser} />
+//           <hr/>
+//           ...
+//         </div>
+//       </Router>
+//     );
+//   }
+// }
 
 // export default withFirebase(App);
 export default App;
