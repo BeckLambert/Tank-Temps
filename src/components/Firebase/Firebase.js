@@ -1,5 +1,6 @@
 import app from 'firebase/app';
 import 'firebase/auth';
+import { withFirebase } from '../../Pages/SignOut';
 
 const firebaseConfig = {
     apiKey: 'AIzaSyDUzI4kXKEpWapGiZ0f6nN0d0JQ7mrb9WU',
