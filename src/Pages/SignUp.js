@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { FirebaseContext } from '../Firebase';
-import * as ROUTES from '../../constants/routes';
+import { FirebaseContext } from '../components/Firebase';
+import * as ROUTES from './routes';
 import FirebaseContext, { withFirebase } from './context';
-import { withFirebase } from '../Firebase';
+import { withFirebase } from '../components/Firebase';
 import { compose } from 'recompose';
 
 const initialState = {
