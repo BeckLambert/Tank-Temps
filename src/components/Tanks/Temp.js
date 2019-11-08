@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './Tanks.css';
+// import './Temp.css';
 
 
-class Tank extends Component {
+class Temp extends Component {
 
     // state = {
     //     tanks: [],
@@ -31,7 +31,7 @@ class Tank extends Component {
 
     render() {
         return (
-            <p>Tank Page</p>
+            <p>Temp Page</p>
                 // <col size="md-6">
                 //     {this.state.tanks.map(tank => (
                 //         <>
@@ -59,5 +59,4 @@ class Tank extends Component {
 
 }
 
-export default Tank
-
+export default Temp
