@@ -60,4 +60,3 @@ class Tank extends Component {
 }
 
 export default Tank
-
