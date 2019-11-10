@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
-// import './Temp.css';
+import './Tanks.css';
 
 
 class Temp extends Component {
 
-    // state = {
-    //     tanks: [],
-    //     displayName: [],
-    //     temperature: []
-    // }
+}
 
-    // getTankTemperature = (timeout = 0, fail = false) => {
+export default Temp
+
+
+  // getTankTemperature = (timeout = 0, fail = false) => {
     //     const response = {
     //         tanks: [
     //             { id: '1', displayName: 'FV 1', temperature: 67 }
@@ -27,36 +26,3 @@ class Temp extends Component {
     // }
 
     //componentDidUpdate
-
-
-    render() {
-        return (
-            <p>Temp Page</p>
-                // <col size="md-6">
-                //     {this.state.tanks.map(tank => (
-                //         <>
-                //             <tr
-                //                 key={tank}
-                //                 id="id"
-                //                 className="displayName"
-                //                 value={this.state.displayName}
-                //                 to="/tank/:id"
-                //             />
-                //             <td
-                //                 key={tank}
-                //                 id="id"
-                //                 className="temerature"
-                //                 value={this.state.temperature}
-                //                 to="tank/:id"
-                //             />
-                //         </>
-                //     ))}
-                // </col>
-           
-            
-        )
-    }
-
-}
-
-export default Temp
