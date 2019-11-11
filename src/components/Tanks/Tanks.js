@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import tanks from "../../tanks.json";
 import './Tanks.css';
+import firebase from "firebase";
+import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 
 
 class Tank extends Component {
@@ -9,9 +11,14 @@ class Tank extends Component {
         tanks
     }
 
+    
     render() {
+     const handleSignOut = () => {
+            firebase.auth().signOut()
+          }
         return (
            <>
+           <button onClick={handleSignOut}>Sign Out</button>
            <div className="col-md-6">
                <table>
                    <thead>
