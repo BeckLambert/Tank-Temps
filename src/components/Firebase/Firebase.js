@@ -1,6 +1,6 @@
 import app from 'firebase/app';
 import 'firebase/auth';
-// import { withFirebase } from '../../Pages/SignOut';
+
 
 var firebaseConfig = {
     apiKey: "AIzaSyDUzI4kXKEpWapGiZ0f6nN0d0JQ7mrb9WU",
@@ -19,18 +19,6 @@ class Firebase {
 
         this.auth = app.auth();
     }
-//     // create user
-//     doCreateUserWithEmailAndPassword = (email, password) =>
-//     this.auth.createUserWithEmailAndPassword(email, password);
-//     // sign in
-//     doSignInWithEmailAndPassword = (email, password) =>
-//     this.auth.signInWithEmailAndPassword(email, password);
-//     //sign out 
-//     doSignOut = () => this.auth.signOut();
-//     //password reset
-//     doPasswordReset = email => this.auth.sendPasswordResetEmail(email);
-//     doPasswordUpdate = password =>
-//     this.auth.currentUser.updatePassword(password);
 }
 
 export default Firebase;

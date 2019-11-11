@@ -1,7 +1,12 @@
 # main.py -- put your code here!
 # Import what is necessary to create a thread
+import machine
 import _thread
 from time import sleep
+adc = machine.ADC()             # create an ADC object
+# adc.vref_to_pin('P22')
+adc.vref(1100)
+apin = adc.channel(pin='P16')   # create an analog pin on P16
 
 # Increment index used to scan each point from vector sensors_data
 def inc(index, vector):
@@ -29,8 +34,10 @@ V_MIN = 0 #V
 R1 = 10 # 10 kOhm
 R2 = 2 # 2 kOhm
 
+
 def get_voltage():
-    return 1
+    val = apin() #microvolts
+    return val / 1000
 
 def calculate_v_in (v_out):
     return v_out * (R1 + R2) / R2
