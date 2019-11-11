@@ -29,7 +29,7 @@
   <body>
 
     <h1><span class="blue"></span>Tank<span class="blue"></span> <span class="yellow">Temperatures</pan></h1>          
-      <table class="container">
+      <!-- <table class="container">
           <thead>
             <tr>
                 <th><h1>Tank</h1></th>
@@ -39,27 +39,27 @@
       <tbody id="table">
             
       </tbody>
-    </table>
+    </table> -->
 
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <script src='https;//www.gstatic.com/firebasejs/4.7.0/firebase.js'></script>
     <script>
       
     // Firebase configuration
-    // var firebaseConfig = {
-    //     apiKey: "AIzaSyDUzI4kXKEpWapGiZ0f6nN0d0JQ7mrb9WU",
-    //     authDomain: "tank-temps.firebaseapp.com",
-    //     databaseURL: "https://tank-temps.firebaseio.com",
-    //     projectId: "tank-temps",
-    //     storageBucket: "",
-    //     messagingSenderId: "355631466975",
-    //     appId: "1:355631466975:web:4bd593965c255922795c6a",
-    //     measurementId: "G-V89HNETHYP"
-    // };
+    var firebaseConfig = {
+        apiKey: "AIzaSyDUzI4kXKEpWapGiZ0f6nN0d0JQ7mrb9WU",
+        authDomain: "tank-temps.firebaseapp.com",
+        databaseURL: "https://tank-temps.firebaseio.com",
+        projectId: "tank-temps",
+        storageBucket: "",
+        messagingSenderId: "355631466975",
+        appId: "1:355631466975:web:4bd593965c255922795c6a",
+        measurementId: "G-V89HNETHYP"
+    };
     // Initialize Firebase 
-    // firebase.initializeApp(firebaseConfig);
+    firebase.initializeApp(firebaseConfig);
     
-    // var database = firebase.database();
+    var database = firebase.database();
     
     //at initial load and value change get a snapshot of the stored data.
     // database.ref().on("value", function(snapshot) {
