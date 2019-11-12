@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 // import './Tanks.css';
-import firebase from "firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import Tank from "./components/Tanks/Tanks";
 import Temp from "./components/Tanks/Temp";
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+const firebase = require("firebase");
+require("firebase/firestore");// Required for side-effects
 
 
 
