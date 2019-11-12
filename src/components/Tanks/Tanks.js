@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
 import tanks from "../../tanks.json";
 import './Tanks.css';
-import firebase from "firebase";
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
-import styled from 'styled.components';
+const firebase = require("firebase");
+require("firebase/firestore");// Required for side-effects
 
-const Container = styled.section `
-text-align: left;
-overflow: hidden;
-width: 80%;
-margin: 0 auto;
-display: table;
-padding: 0 0 8em 0;
-`
+// import styled from 'styled.components';
+
+// const Container = styled.section `
+// text-align: left;
+// overflow: hidden;
+// width: 80%;
+// margin: 0 auto;
+// display: table;
+// padding: 0 0 8em 0;
+// `
 
 class Tank extends Component {
 
@@ -28,7 +30,7 @@ class Tank extends Component {
         return (
            <>
            <button onClick={handleSignOut}>Sign Out</button>
-           <Container>
+           
            <div className="col-md-6">
                <table>
                    <thead>
@@ -45,7 +47,7 @@ class Tank extends Component {
                    </tbody>
                </table>
            </div>
-           </Container>
+        
            </>
            
            
