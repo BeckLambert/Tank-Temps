@@ -69,6 +69,7 @@
   };
     // Initialize Firebase 
     firebase.initializeApp(firebaseConfig);
+
     const db = firebase.firestore();
 
     db.collection("tanks").add({
@@ -79,7 +80,7 @@
     }).catch(function(error) {
         console.error("Error adding document: ", error);
     });
-
+    
     db.collection("tanks").add({
     name: "FV 3",
     temp: 32
