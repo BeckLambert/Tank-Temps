@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import './Tanks.css';
+// import React, { Component } from 'react';
+// import './Tanks.css';
 
 
-class Temp extends Component {
+// class Temp extends Component {
 
-}
+// }
 
-export default Temp
+// export default Temp
 
 
   // getTankTemperature = (timeout = 0, fail = false) => {
