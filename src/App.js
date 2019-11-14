@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import './Tanks.css';
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import Tank from "./components/Tanks/Tanks";
 import Temp from "./components/Tanks/Temp";

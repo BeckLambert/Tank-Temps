@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "express": "^4.17.1",
+    "fcm-node": "^1.5.2",
     "firebase": "^7.3.0",
     "firebase-admin": "^8.7.0",
     "react": "^16.11.0",
