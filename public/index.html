@@ -61,27 +61,13 @@
 
     const db = firebase.firestore();
 
-    db.collection("tanks").add({
-    name: "FV 99",
-    temp: 999
-    }).then(function(docRef) {
-        console.log("Document written with ID: ", docRef.id);
-    }).catch(function(error) {
-        console.error("Error adding document: ", error);
-    });
-    
-    // db.collection("tanks").add({
-    // name: "FV 3",
-    // temp: 32
-    // }).then(function(docRef) {
-    //     console.log("Document written with ID: ", docRef.id);
-    // }).catch(function(error) {
-    //     console.error("Error adding document: ", error);
-    // });
-    //at initial load and value change get a snapshot of the stored data.
-    // database.ref().on("value", function(snapshot) {
-    //     console.log(snapshot.val());
-    // });
+    let data = {
+      name: 'FV 1',
+      temp: 32
+    };
+
+    let setDoc = db.collection('tanks').doc('temps').set(data);
+
   </script>
 
     <div id="root"></div>
