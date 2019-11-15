@@ -4,38 +4,39 @@ import tanks from "../../tanks.json";
 import { Link } from 'react-router-dom';
 import firebase from 'firebase';
 
+var firebaseConfig = {
+    apiKey: "AIzaSyDUzI4kXKEpWapGiZ0f6nN0d0JQ7mrb9WU",
+    authDomain: "tank-temps.firebaseapp.com",
+    databaseURL: "https://tank-temps.firebaseio.com",
+    projectId: "tank-temps",
+    storageBucket: "tank-temps.appspot.com",
+    messagingSenderId: "355631466975",
+    appId: "1:355631466975:web:4bd593965c255922795c6a",
+    measurementId: "G-V89HNETHYP"
+  };
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+const docRef = db.collection('tanks').doc('1f50398e-062b-4dea-9e64-3cbcea7ecd9d');
+const getDoc = docRef.get()
+.then(doc => {
+if (!doc.exists) {
+  console.log('No such document!');
+} else {
+  console.log('Document data:', doc.data());
+}
+})
+.catch(err => {
+console.log('Error getting document', err);
+});
+
 
 class Tank extends Component {
 
     state = {
         tanks
     }
-
-    // getTemp() { 
-
-    //     const db = firebase.firestore();
-    //     db.settings({ timestampsInSnapshots: true});
-    //     db.collection('tanks').get().then((snapshot) => {
-    
-    //       snapshot.docs.forEach(doc => {
-    //           let temp = doc.data();
-    
-    //           /* Make data suitable for rendering */
-    //           temp = JSON.stringify(temp);
-    
-    //           /* Update the components state with query result */
-    //           this.setState({ temp : temp }) 
-    //       });
-    
-    //     });
-    // }
-
-    // componentDidMount() {
-
-    //     /* Cause your component to request data from Firebase when
-    //        component first mounted */
-    //     this.getTemp()
-    // }
 
     render() {
      const handleSignOut = () => {
@@ -56,7 +57,7 @@ class Tank extends Component {
                    <tbody>
                        {this.state.tanks.map(tank => (
                           <Tr> <tr key={tank.id}>
-                                {/* <td>{ this.state.items || 'Loading' }</td> */}
+                                <td>{ getDoc }</td>
                            <Td><td><Link to={{pathname: '/temp'}}>{tank.displayName}</Link></td>
                                <td className="temperature">{tank.temperature}</td></Td>
                            </tr>
