@@ -8,10 +8,10 @@ require("firebase/firestore");// Required for side-effects
 
 
 
-firebase.initializeApp({
-    apiKey: "AIzaSyDUzI4kXKEpWapGiZ0f6nN0d0JQ7mrb9WU",
-    authDomain: "tank-temps.firebaseapp.com"
-})
+// firebase.initializeApp({
+//     apiKey: "AIzaSyDUzI4kXKEpWapGiZ0f6nN0d0JQ7mrb9WU",
+//     authDomain: "tank-temps.firebaseapp.com"
+// })
 
 class App extends Component {
     state = {isSignedIn: false}
