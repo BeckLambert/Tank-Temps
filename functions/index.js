@@ -5,22 +5,19 @@ admin.initializeApp(functions.config().firebase);
 
 const db = admin.firestore();
 
-exports.helloWorld = functions.https.onRequest(async(request, response) => {
+exports.helloWorld = functions.https.onRequest(async (request, response) => {
   const body = Object.assign(Object.assign({}, request.body), request.query);
-    console.log(JSON.stringify(body));
-    // const payload = {"deviceToken":"tankId",
-    //                 "event":"WEBHOOK_EVENT_NAME",
-    //                 "signal":1,
-    //                 "payload":18.2}
-    const tankId = body.deviceToken
-    if (!tankId) {
-      return response.status(400).send("invalid id")
-    }
-    let temperature = Number.parseFloat(body.payload);
-    if(Number.isNaN(temperature)) {
-      return response.status(400).send("invalid temperature")
-    }
-    await db.collection(`tanks`).doc(tankId).set({temperature: temperature}, {merge: true});
+  console.log(JSON.stringify(body));
 
-    response.sendStatus(200);
-  });
+  const tankId = body.deviceToken
+  if (!tankId) {
+    return response.status(400).send("invalid id")
+  }
+  let temperature = Number.parseFloat(body.payload);
+  if (Number.isNaN(temperature)) {
+    return response.status(400).send("invalid temperature")
+  }
+  await db.collection(`tanks`).doc(tankId).set({ temperature: temperature }, { merge: true });
+
+  response.sendStatus(200);
+});
