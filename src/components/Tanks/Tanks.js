@@ -104,9 +104,6 @@ const Td = styled.td`
     padding-left:2%;
     font-weight: normal;
     font-size: 1em;
-    -webkit-box-shadow: 0 2px 2px -2px #0E1119;
-    -moz-box-shadow: 0 2px 2px -2px #0E1119;
-    box-shadow: 0 2px 2px -2px #0E1119;
     width: 1050px;
     `
 
