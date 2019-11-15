@@ -1,10 +1,81 @@
 import styled from 'styled-components';
 import React, { Component } from 'react';
 import tanks from "../../tanks.json";
-import './Tanks.css';
-// import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
-const firebase = require("firebase");
-require("firebase/firestore");// Required for side-effects
+import { Link } from 'react-router-dom';
+import firebase from 'firebase';
+
+
+class Tank extends Component {
+
+    state = {
+        tanks
+    }
+
+    // getTemp() { 
+
+    //     const db = firebase.firestore();
+    //     db.settings({ timestampsInSnapshots: true});
+    //     db.collection('tanks').get().then((snapshot) => {
+    
+    //       snapshot.docs.forEach(doc => {
+    //           let temp = doc.data();
+    
+    //           /* Make data suitable for rendering */
+    //           temp = JSON.stringify(temp);
+    
+    //           /* Update the components state with query result */
+    //           this.setState({ temp : temp }) 
+    //       });
+    
+    //     });
+    // }
+
+    // componentDidMount() {
+
+    //     /* Cause your component to request data from Firebase when
+    //        component first mounted */
+    //     this.getTemp()
+    // }
+
+    render() {
+     const handleSignOut = () => {
+            firebase.auth().signOut()
+          }
+        return (
+           <>
+           <button onClick={handleSignOut}>Sign Out</button>
+           <Container>
+           <div className="col-md-6">
+               <table>
+                   <thead>
+                       <Th>
+                       <th>Display Name</th>
+                       <td>Tempurature</td>
+                       </Th>
+                   </thead>
+                   <tbody>
+                       {this.state.tanks.map(tank => (
+                          <Tr> <tr key={tank.id}>
+                                {/* <td>{ this.state.items || 'Loading' }</td> */}
+                           <Td><td><Link to={{pathname: '/temp'}}>{tank.displayName}</Link></td>
+                               <td className="temperature">{tank.temperature}</td></Td>
+                           </tr>
+                           </Tr>
+                       ))}
+                   </tbody>
+               </table>
+           </div>
+           </Container>
+           </>
+           
+           
+            
+        )
+    }
+
+}
+
+export default Tank
 
 const Container = styled.section `
 text-align: left;
@@ -48,49 +119,3 @@ color: #185875;
 background-color: #1F2739;
 width: 950px;
 `
-
-class Tank extends Component {
-
-    state = {
-        tanks
-    }
-
-    
-    render() {
-     const handleSignOut = () => {
-            firebase.auth().signOut()
-          }
-        return (
-           <>
-           <button onClick={handleSignOut}>Sign Out</button>
-           <Container>
-           <div className="col-md-6">
-               <table>
-                   <thead>
-                       <Th>
-                       <th>Display Name</th>
-                       <th>Tempurature</th>
-                       </Th>
-                   </thead>
-                   <tbody>
-                       {this.state.tanks.map(tank => (
-                          <Tr> <tr key={tank.id}>
-                           <Td><td>{tank.displayName}</td>
-                               <td className="temperature">{tank.temperature}</td></Td>
-                           </tr>
-                           </Tr>
-                       ))}
-                   </tbody>
-               </table>
-           </div>
-           </Container>
-           </>
-           
-           
-            
-        )
-    }
-
-}
-
-export default Tank
