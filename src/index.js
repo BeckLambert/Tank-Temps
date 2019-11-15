@@ -12,8 +12,8 @@ ReactDOM.render(<App />, document.getElementById("root"));
 // initializeFirebase();
 
 const NotificationButton = () => (
-    <button onClick={askForPermissionToReceiveNotifications} >
-      Allow Notifications
+  <button onClick={askForPermissionToReceiveNotifications} >
+    Allow Notifications
     </button>
 );
 

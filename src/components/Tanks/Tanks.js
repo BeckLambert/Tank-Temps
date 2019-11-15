@@ -17,8 +17,6 @@ var firebaseConfig = {
 // Initialize Firebase 
 firebase.initializeApp(firebaseConfig);
 
-
-
 class Tank extends Component {
 
     state = {
@@ -33,7 +31,7 @@ class Tank extends Component {
     getTemp = () => {
         const db = firebase.firestore()
         const docRef = db.collection("tanks").doc("1f50398e-062b-4dea-9e64-3cbcea7ecd9d");
-    
+
         docRef.get().then(doc => {
             if (doc.exists) {
                 console.log("Document data:", doc.data().temperature);
@@ -64,18 +62,18 @@ class Tank extends Component {
                                 </Th>
                             </thead>
                             <tbody>
-                            <Tr> 
-                            <tr>FV 1 
+                                <Tr>
+                                    <tr>FV 1
                             <Td><td className="livetemp">{this.state.temp}</td></Td>
-                            </tr>
-                            </Tr>
-                                {this.state.tanks.map(tank => (
-                                    <Tr> 
-                                        <tr key={tank.id}>
-                                        <Td><td><Link to={{ pathname: '/temp' }}>{tank.displayName}</Link></td>
-                                            <td className="temperature">{tank.temperature}</td></Td>
                                     </tr>
-                                    
+                                </Tr>
+                                {this.state.tanks.map(tank => (
+                                    <Tr>
+                                        <tr key={tank.id}>
+                                            <Td><td><Link to={{ pathname: '/temp' }}>{tank.displayName}</Link></td>
+                                                <td className="temperature">{tank.temperature}</td></Td>
+                                        </tr>
+
                                     </Tr>
                                 ))}
                             </tbody>

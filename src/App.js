@@ -2,19 +2,13 @@ import React, { Component } from 'react';
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import Tank from "./components/Tanks/Tanks";
 import Temp from "./components/Tanks/Temp";
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 const firebase = require("firebase");
 require("firebase/firestore");// Required for side-effects
 
 
-
-// firebase.initializeApp({
-//     apiKey: "AIzaSyDUzI4kXKEpWapGiZ0f6nN0d0JQ7mrb9WU",
-//     authDomain: "tank-temps.firebaseapp.com"
-// })
-
 class App extends Component {
-    state = {isSignedIn: false}
+    state = { isSignedIn: false }
     uiConfig = {
         signInFlow: "popup",
         signInOptions: [
@@ -23,43 +17,39 @@ class App extends Component {
         ],
         callbacks: {
             signInSuccess: () => {
-                window.location.pathname="/tank"
+                window.location.pathname = "/tank"
             }
         }
     }
 
-
-
     componentDidMount = () => {
         firebase.auth().onAuthStateChanged(user => {
-            this.setState({isSignedIn:!!user})
+            this.setState({ isSignedIn: !!user })
         })
-
-
     }
 
     render() {
         return (
-            
+
             <div className="signup">
-            {this.state.isSignedIn ? (
-                <>
-                <div>Signed In!</div>
-                <Router>
-      <Switch>
-        <Route exact path='/tank' component={Tank}/>
-        <Route exact path='/temp' component={Temp}/>
-      </Switch>
-    </Router>
-                </>
-            ) : (
-                <StyledFirebaseAuth
-                uiConfig={this.uiConfig}
-                firebaseAuth={firebase.auth()}
-                />
-            )}
-              </div>
-            
+                {this.state.isSignedIn ? (
+                    <>
+                        <div>Signed In!</div>
+                        <Router>
+                            <Switch>
+                                <Route exact path='/tank' component={Tank} />
+                                <Route exact path='/temp' component={Temp} />
+                            </Switch>
+                        </Router>
+                    </>
+                ) : (
+                        <StyledFirebaseAuth
+                            uiConfig={this.uiConfig}
+                            firebaseAuth={firebase.auth()}
+                        />
+                    )}
+            </div>
+
         )
     }
 
