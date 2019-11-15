@@ -52,14 +52,14 @@ h2 a {
 	        box-shadow: 0 2px 2px -2px #0E1119;
 }
 
-.container {
+/* .container {
 	  text-align: left;
 	  overflow: hidden;
 	  width: 80%;
 	  margin: 0 auto;
   display: table;
   padding: 0 0 8em 0;
-}
+} */
 
 .container td, .container th {
 	  padding-bottom: 2%;

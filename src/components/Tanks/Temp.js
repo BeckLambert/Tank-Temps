@@ -1,28 +1,45 @@
-// import React, { Component } from 'react';
+import React, { Component } from 'react';
+import styled from 'styled-components';
+
 // import './Tanks.css';
 
+const Submit = styled.button `
+  margin-top: 10px;
+  background-color: grey;
+  border-radius: 25px;
+`
+const Form = styled.form`
+    margin-top: 35px;
+`
 
-// class Temp extends Component {
 
-// }
+class Temp extends Component {
 
-// export default Temp
+  render() {
+    return (
+  <>
+      <Form>
+      <form>
+       
+      <div className="form-row">
+     
+      <div className="col-md-2 offset-md-5 align-items-start">
+      <p>Set target temp here:</p>
+      <input type="text" class="form-control" placeholder="Target Temp"/>
+      </div>
+      <div className="col-md-10 offset-sm-6 align-items-center">
+      <Submit><button type="submit" class="btn btn">Submit</button></Submit>
+      </div>
 
+      </div>
+     
+      </form>
+      </Form>
+   </>  
 
-  // getTankTemperature = (timeout = 0, fail = false) => {
-    //     const response = {
-    //         tanks: [
-    //             { id: '1', displayName: 'FV 1', temperature: 67 }
-    //         ],
-    //     };
-    //     return (response);
-    // }
+    )
+  }
 
-    //componentDidMount
-    // componentDidMount() {
-    //     API.getNotifications()
-    //         .then(res => this.setState({ :  }))
-    //         .catch(err => console.log(err))
-    // }
+}
 
-    //componentDidUpdate
+export default Temp

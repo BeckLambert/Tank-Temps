@@ -48,10 +48,9 @@ class App extends Component {
                 <Router>
       <Switch>
         <Route exact path='/tank' component={Tank}/>
-        <Route exact path='/temp/:id' component={Temp}/>
+        <Route exact path='/temp' component={Temp}/>
       </Switch>
     </Router>
-                <button onClick={() => firebase.auth().signOut()}>Sign Out</button>
                 </>
             ) : (
                 <StyledFirebaseAuth

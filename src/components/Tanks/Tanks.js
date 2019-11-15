@@ -1,20 +1,9 @@
+import styled from 'styled-components';
 import React, { Component } from 'react';
 import tanks from "../../tanks.json";
-import './Tanks.css';
-import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
-const firebase = require("firebase");
-require("firebase/firestore");// Required for side-effects
+import { Link } from 'react-router-dom';
+import firebase from 'firebase';
 
-// import styled from 'styled.components';
-
-// const Container = styled.section `
-// text-align: left;
-// overflow: hidden;
-// width: 80%;
-// margin: 0 auto;
-// display: table;
-// padding: 0 0 8em 0;
-// `
 
 class Tank extends Component {
 
@@ -22,7 +11,32 @@ class Tank extends Component {
         tanks
     }
 
+    // getTemp() { 
+
+    //     const db = firebase.firestore();
+    //     db.settings({ timestampsInSnapshots: true});
+    //     db.collection('tanks').get().then((snapshot) => {
     
+    //       snapshot.docs.forEach(doc => {
+    //           let temp = doc.data();
+    
+    //           /* Make data suitable for rendering */
+    //           temp = JSON.stringify(temp);
+    
+    //           /* Update the components state with query result */
+    //           this.setState({ temp : temp }) 
+    //       });
+    
+    //     });
+    // }
+
+    // componentDidMount() {
+
+    //     /* Cause your component to request data from Firebase when
+    //        component first mounted */
+    //     this.getTemp()
+    // }
+
     render() {
      const handleSignOut = () => {
             firebase.auth().signOut()
@@ -30,24 +44,28 @@ class Tank extends Component {
         return (
            <>
            <button onClick={handleSignOut}>Sign Out</button>
-           
+           <Container>
            <div className="col-md-6">
                <table>
                    <thead>
+                       <Th>
                        <th>Display Name</th>
-                       <th>Tempurature</th>
+                       <td>Tempurature</td>
+                       </Th>
                    </thead>
                    <tbody>
                        {this.state.tanks.map(tank => (
-                           <tr key={tank.id}>
-                               <td>{tank.displayName}</td>
-                               <td className="temperature">{tank.temperature}</td>
+                          <Tr> <tr key={tank.id}>
+                                {/* <td>{ this.state.items || 'Loading' }</td> */}
+                           <Td><td><Link to={{pathname: '/temp'}}>{tank.displayName}</Link></td>
+                               <td className="temperature">{tank.temperature}</td></Td>
                            </tr>
+                           </Tr>
                        ))}
                    </tbody>
                </table>
            </div>
-        
+           </Container>
            </>
            
            
@@ -58,3 +76,46 @@ class Tank extends Component {
 }
 
 export default Tank
+
+const Container = styled.section `
+text-align: left;
+overflow: hidden;
+max-width: 950px;
+margin: 0 auto;
+display: table;
+padding: 0 0 8em 0;
+`
+
+const Td = styled.td`
+padding-bottom: 2%;
+padding-top: 2%;
+padding-left:2%;
+font-weight: normal;
+font-size: 1em;
+-webkit-box-shadow: 0 2px 2px -2px #0E1119;
+ -moz-box-shadow: 0 2px 2px -2px #0E1119;
+      box-shadow: 0 2px 2px -2px #0E1119;
+width: 1050px;
+`
+
+const Tr = styled.tr`
+background-color: #323C50;
+padding-bottom: 2%;
+padding-top: 2%;
+padding-left:5%;
+padding-right: 50px;
+width: 1050px;
+`
+
+const Th = styled.th`
+padding-bottom: 2%;
+padding-top: 2%;
+padding-left:20%;
+padding-right: 50px;
+font-weight: bold;
+font-size: 1em;
+text-align: center;
+color: #185875;
+background-color: #1F2739;
+width: 950px;
+`
