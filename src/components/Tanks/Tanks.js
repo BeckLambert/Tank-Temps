@@ -4,8 +4,6 @@ import tanks from "../../tanks.json";
 import { Link } from 'react-router-dom';
 import * as firebase from 'firebase';
 
-
-
 var firebaseConfig = {
     apiKey: "AIzaSyDUzI4kXKEpWapGiZ0f6nN0d0JQ7mrb9WU",
     authDomain: "tank-temps.firebaseapp.com",
@@ -19,60 +17,36 @@ var firebaseConfig = {
 // Initialize Firebase 
 firebase.initializeApp(firebaseConfig);
 
-const getTemp = () => {
-    const db = firebase.firestore()
-    const docRef = db.collection("tanks").doc("1f50398e-062b-4dea-9e64-3cbcea7ecd9d");
 
-    docRef.get().then(function (doc) {
-        if (doc.exists) {
-            console.log("Document data:", doc.data().temperature);
-            // res.render()
-            return doc.data().temperature;
-        } else {
-            // doc.data() will be undefined in this case
-            console.log("No such document!");
-        }
-    }).catch(function (error) {
-        console.log("Error getting document:", error);
-    });
-}
 
 class Tank extends Component {
 
     state = {
-        tanks
+        tanks,
+        temp: 0
     }
 
-    // getTemp() {
+    componentDidMount() {
+        this.getTemp();
+    }
 
-    //     const db = firebase.firestore();
-    //     db.settings({ timestampsInSnapshots: true });
-    //     db.collection('tanks').get().then((snapshot) => {
-
-    //         snapshot.docs.forEach(doc => {
-    //             let temp = doc.data();
-
-    //             /* Make data suitable for rendering */
-    //             temp = JSON.stringify(temp);
-
-    //             /* Update the components state with query result */
-    //             this.setState({ temp: temp })
-    //         });
-
-    //     });
-
-
-
-
-
-    // componentDidMount() {
-
-    //     /* Cause your component to request data from Firebase when
-    //     component first mounted */
-    //     getTemp()
-    // }
-
-
+    getTemp = () => {
+        const db = firebase.firestore()
+        const docRef = db.collection("tanks").doc("1f50398e-062b-4dea-9e64-3cbcea7ecd9d");
+    
+        docRef.get().then(doc => {
+            if (doc.exists) {
+                console.log("Document data:", doc.data().temperature);
+                this.setState({ temp: doc.data().temperature });
+                // res.json({temp: doc.data().temperature});
+            } else {
+                // doc.data() will be undefined in this case
+                console.log("No such document!");
+            }
+        }).catch(function (error) {
+            console.log("Error getting document:", error);
+        });
+    }
 
     render() {
         const handleSignOut = () => {
@@ -91,13 +65,18 @@ class Tank extends Component {
                                 </Th>
                             </thead>
                             <tbody>
+                            <Tr> 
+                            <tr>FV 1 
+                            <Td><td className="livetemp">{this.state.temp}</td></Td>
+                            </tr>
+                            </Tr>
                                 {this.state.tanks.map(tank => (
-                                    <Tr> <tr key={tank.id}>
-                                        {/* <td>{ this.state.items || 'Loading' }</td> */}
+                                    <Tr> 
+                                        <tr key={tank.id}>
                                         <Td><td><Link to={{ pathname: '/temp' }}>{tank.displayName}</Link></td>
                                             <td className="temperature">{tank.temperature}</td></Td>
-                                        <td className="livetemp">{getTemp()}</td>
                                     </tr>
+                                    
                                     </Tr>
                                 ))}
                             </tbody>

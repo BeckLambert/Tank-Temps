@@ -1,15 +1,15 @@
 * Database used: Firebase 
 
-* Hardware: Pycom WiPy 3.0 with headers, Pycom Expansion Board 3.0, Voltage Divisor,            Thermostat
+* Hardware: Pycom WiPy 3.0 with headers, Pycom Expansion Board 3.0, Voltage Divisor, Ranco Electronic Thermostat
 
-* Technologies used: React, Es6, Css, axios, Json, Socket Io, Python, Express, Node
+* Technologies used: React, Es6, Css, axios, Json, Pybytes, Python, Express, Node, JavaScript, Styled
 
-* API: Notifications - Will send push notifications to all users logged in to the app
+* API: Firebase Notifications, Firestore, Firebase Authentication
 
 * Devs: Becky Lambert and Jaimee Razee
-    * Becky: Front end UI, Firebase, Log in
-        * Jaimee: Table and temps render in React
-            * Both:  Working on new technologies which are Python and Socket Io
+    * Becky: Front end UI, Firebase configuration, notifications
+        * Jaimee: Firebase authentication, rendering database information
+            * Both:  Working on new technologies which are Python and Pybytes
 
 
 

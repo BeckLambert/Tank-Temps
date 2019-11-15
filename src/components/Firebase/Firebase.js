@@ -13,6 +13,11 @@
 //     measurementId: "G-V89HNETHYP"
 //   };
 
+<<<<<<< HEAD
+class Firebase {
+    constructor() {
+        // app.initializeApp(firebaseConfig);
+=======
 // class Firebase {
 //     constructor() {
 //         app.initializeApp(firebaseConfig);
@@ -20,5 +25,6 @@
 //         this.auth = app.auth();
 //     }
 // }
+>>>>>>> 0844c24edfcb0be429e162f87f862fa66afe10b1
 
 // export default Firebase;
