@@ -1,11 +1,14 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
+const express = require('express');
 
 admin.initializeApp(functions.config().firebase);
 
 const db = admin.firestore();
+const app =  express()
 
-exports.helloWorld = functions.https.onRequest(async (request, response) => {
+app.all("/", 
+(async (request, response) => {
   const body = Object.assign(Object.assign({}, request.body), request.query);
   console.log(JSON.stringify(body));
 
@@ -20,4 +23,6 @@ exports.helloWorld = functions.https.onRequest(async (request, response) => {
   await db.collection(`tanks`).doc(tankId).set({ temperature: temperature }, { merge: true });
 
   response.sendStatus(200);
-});
+}));
+
+exports.helloWorld = functions.https.onRequest(app);
