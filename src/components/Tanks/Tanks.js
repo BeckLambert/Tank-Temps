@@ -67,15 +67,12 @@ class Tank extends Component {
                                 </Th>
                             </thead>
                             <tbody>
-                                <Tr>
-                            FV 1
-                            <Td style={{paddingRight: 10, textDecoration: "none"}} className="livetemp">{temp}  &deg;F</Td>
-                                  
-                                </Tr>
+                                <Tr><Link style={{paddingRight: 10, textDecoration: "none"}} >FV 1</Link>
+                            <Td className="livetemp">{temp}  &deg;F</Td></Tr>
                                 {this.state.tanks.map(tank => (
                                     <Tr key={tank.id}>
                                             <Td><Link style={{paddingRight: 10, textDecoration: "none"}} to={{ pathname: '/temp' }}>{tank.displayName}</Link></Td>
-                                                <Td className="temperature">{tank.temperature}</Td>
+                                                <Td className="temperature">{tank.temperature} &deg;F</Td>
                                     </Tr>
                                 ))}
                             </tbody>

@@ -9,7 +9,7 @@
     "logs": "firebase functions:log"
   },
   "engines": {
-    "node": "12.6.0"
+    "node": "12.13.0"
   },
   "dependencies": {
     "express": "^4.17.1",
