@@ -7,7 +7,7 @@
     "fcm-node": "^1.5.2",
     "firebase": "^7.3.0",
     "firebase-admin": "^8.7.0",
-    "node": "^12.6.0",
+    "node": "^12.13.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-firebaseui": "^4.0.0",
