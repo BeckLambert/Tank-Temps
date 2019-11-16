@@ -43,12 +43,17 @@ class Tank extends Component {
         }).catch(function (error) {
             console.log("Error getting document:", error);
         });
+
+        docRef.onSnapshot({next: (snapshot => {
+            this.setState({ temp: snapshot.data().temperature });
+        })})
     }
 
     render() {
         const handleSignOut = () => {
             firebase.auth().signOut()
         }
+        let temp = this.state.temp.toFixed(2)
         return (
             <>
                 <button onClick={handleSignOut}>Sign Out</button>
@@ -64,7 +69,7 @@ class Tank extends Component {
                             <tbody>
                                 <Tr>
                                     <tr>FV 1
-                            <Td><td className="livetemp">{this.state.temp}</td></Td>
+                            <Td><td className="livetemp">{temp}  &deg;F </td></Td>
                                     </tr>
                                 </Tr>
                                 {this.state.tanks.map(tank => (
