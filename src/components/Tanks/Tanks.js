@@ -61,13 +61,12 @@ class Tank extends Component {
                     <div className="col-md-6">
                         <table>
                             <thead>
-                                <Th>
-                                    <th>Display Name</th>
-                                    <td>Tempurature</td>
-                                </Th>
+                                <Th><th>Display Name</th></Th>
+                                <ThOne><td>Tempurature</td></ThOne>
+                                
                             </thead>
                             <tbody>
-                                <Tr><Link style={{paddingRight: 10, textDecoration: "none"}} >FV 1</Link>
+                                <Tr><Link style={{paddingRight: 30, textDecoration: "none"}} >FV 1</Link>
                             <Td className="livetemp">{temp}  &deg;F</Td></Tr>
                                 {this.state.tanks.map(tank => (
                                     <Tr key={tank.id}>
@@ -91,10 +90,15 @@ export default Tank
 const Container = styled.section`
     text-align: left;
     overflow: hidden;
-    max-width: 950px;
-    margin: 0 auto;
+    max-width: 980px;
+    width: calc(100vw - 20px);
+    margin: auto;
     display: table;
     padding: 0 0 8em 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     `
 
 const Td = styled.td`
@@ -112,20 +116,30 @@ const Tr = styled.tr`
     padding-top: 2%;
     padding-left:5%;
     padding-right: 50px;
-    width: 1050px;
+    width: 980px;
     `
 
 const Th = styled.th`
     padding-bottom: 2%;
     padding-top: 2%;
-    padding-left:20%;
-    padding-right: 50px;
     font-weight: bold;
     font-size: 1em;
     text-align: center;
     color: #185875;
     background-color: #1F2739;
-    width: 950px;
+    width: 980px;
+    `
+
+    const ThOne = styled.th`
+    padding-bottom: 2%;
+    padding-top: 2%;
+    font-weight: bold;
+    font-size: 1em;
+    text-align: center;
+    color: #185875;
+    background-color: #1F2739;
+    width: 980px;
+    margin-left: 30px;
     `
 
     // export default !firebase.apps.length ? firebase.initializeApp(config) : firebase.app();
