@@ -87,6 +87,9 @@ class Tank extends Component {
 
 export default Tank
 
+
+//STYLING COMPONENTS
+
 const Container = styled.section`
     text-align: left;
     overflow: hidden;
@@ -141,5 +144,3 @@ const Th = styled.th`
     width: 980px;
     margin-left: 30px;
     `
-
-    // export default !firebase.apps.length ? firebase.initializeApp(config) : firebase.app();
