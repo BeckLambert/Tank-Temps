@@ -15,9 +15,10 @@ class Temp extends React.Component {
   handleChange(event) {
     this.setState({value: event.target.value});
   }
-
+  
   handleSubmit(event) {
     alert('A temp was submitted: ' + this.state.value);
+    event.target.empty();
     event.preventDefault();
   }
 
