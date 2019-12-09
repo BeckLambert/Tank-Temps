@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import '../src/components/Tanks/Tanks.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../src/components/Tanks/Tanks.css';
 // import * as serviceWorker from './serviceWorker';
 import { askForPermissionToReceiveNotifications } from './push-notifications';
 

@@ -34,7 +34,7 @@ class App extends Component {
             <div className="signup">
                 {this.state.isSignedIn ? (
                     <>
-                        <div>Signed In!</div>
+                        
                         <Router>
                             <Switch>
                                 <Route exact path='/tank' component={Tank} />

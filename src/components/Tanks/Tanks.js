@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import tanks from "../../tanks.json";
 import { Link } from 'react-router-dom';
 import * as firebase from 'firebase';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 var firebaseConfig = {
     apiKey: "AIzaSyDUzI4kXKEpWapGiZ0f6nN0d0JQ7mrb9WU",
@@ -44,9 +45,11 @@ class Tank extends Component {
             console.log("Error getting document:", error);
         });
 
-        docRef.onSnapshot({next: (snapshot => {
-            this.setState({ temp: snapshot.data().temperature });
-        })})
+        docRef.onSnapshot({
+            next: (snapshot => {
+                this.setState({ temp: snapshot.data().temperature });
+            })
+        })
     }
 
     render() {
@@ -56,22 +59,21 @@ class Tank extends Component {
         let temp = this.state.temp.toFixed(2)
         return (
             <>
-                <button onClick={handleSignOut}>Sign Out</button>
+                <SignOut onClick={handleSignOut} type="submit"  className="btn btn">Sign Out</SignOut>
                 <Container>
-                    <div className="col-md-6">
-                        <table>
+                    <div className="col-md-8">
+                        <table colSpan="4" striped bordered hover variant="dark">
                             <thead>
-                                <Th><th>Display Name</th></Th>
-                                <ThOne><td>Tempurature</td></ThOne>
-                                
+                                <Th>Display Name</Th>
+                                <ThOne>Tempurature</ThOne>
                             </thead>
                             <tbody>
-                                <Tr><Link style={{paddingRight: 30, textDecoration: "none"}} >FV 1</Link>
-                            <Td className="livetemp">{temp}  &deg;F</Td></Tr>
+                                    <Tr><Link to={{ pathname: '/temp' }}>FV 1</Link>
+                                    <Td className="livetemp">{temp}  &deg;F</Td></Tr>
                                 {this.state.tanks.map(tank => (
                                     <Tr key={tank.id}>
-                                            <Td><Link style={{paddingRight: 10, textDecoration: "none"}} to={{ pathname: '/temp' }}>{tank.displayName}</Link></Td>
-                                                <Td className="temperature">{tank.temperature} &deg;F</Td>
+                                        <Td><Link to={{ pathname: '/temp' }}>{tank.displayName}</Link></Td>
+                                        <Td className="temperature">{tank.temperature} &deg;F</Td>
                                     </Tr>
                                 ))}
                             </tbody>
@@ -90,10 +92,17 @@ export default Tank
 
 //STYLING COMPONENTS
 
+const SignOut = styled.button `
+  border-radius: 65px;
+  background-color: #185875;
+  margin-top: -65px;
+  margin-left: 15px;
+  color: yellow;
+`
+
 const Container = styled.section`
     text-align: left;
     overflow: hidden;
-    max-width: 980px;
     width: calc(100vw - 20px);
     margin: auto;
     display: table;
@@ -101,25 +110,33 @@ const Container = styled.section`
     display: flex;
     align-items: center;
     justify-content: center;
-
+    margin-top: 50px;
+    font-weight: bold;
+    font-size: 1em;
+    color: #185875;
+    background-color: #1F2739
     `
 
 const Td = styled.td`
-    padding-bottom: 2%;
-    padding-top: 2%;
+    padding-bottom: 3%;
+    padding-top: 3%;
     padding-left:2%;
     font-weight: normal;
     font-size: 1em;
-    width: 1050px;
+    border-style: groove;
+    border-color: grey;
+    color: #FB667A;
     `
 
 const Tr = styled.tr`
     background-color: #323C50;
-    padding-bottom: 2%;
-    padding-top: 2%;
+    padding-bottom: 3%;
+    padding-top: 3%;
     padding-left:5%;
     padding-right: 50px;
-    width: 980px;
+    border-style: groove;
+    border-color: grey;
+    color: #FB667A;
     `
 
 const Th = styled.th`
@@ -128,19 +145,18 @@ const Th = styled.th`
     font-weight: bold;
     font-size: 1em;
     text-align: center;
-    color: #185875;
-    background-color: #1F2739;
-    width: 980px;
+    background-color: #1F2739
+    width: 1180px;
     `
 
-    const ThOne = styled.th`
+const ThOne = styled.th`
     padding-bottom: 2%;
     padding-top: 2%;
     font-weight: bold;
     font-size: 1em;
     text-align: center;
     color: #185875;
-    background-color: #1F2739;
-    width: 980px;
+    background-color: #1F2739
+    width: 1180px;
     margin-left: 30px;
     `
