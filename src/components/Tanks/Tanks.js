@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import React, { Component } from 'react';
 import tanks from "../../tanks.json";
 import { Link } from 'react-router-dom';
+import { askForPermissionToReceiveNotifications } from '../../push-notifications';
 import * as firebase from 'firebase';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -60,6 +61,10 @@ class Tank extends Component {
         return (
             <>
                 <SignOut onClick={handleSignOut} type="submit"  className="btn btn">Sign Out</SignOut>
+                <Notification onClick={askForPermissionToReceiveNotifications} >
+                    Click here to receive notifications
+                </Notification>
+
                 <Container>
                     <div className="col-md-8">
                         <table colSpan="4" striped bordered hover variant="dark">
@@ -68,7 +73,7 @@ class Tank extends Component {
                                 <ThOne>Tempurature</ThOne>
                             </thead>
                             <tbody>
-                                    <Tr><Link to={{ pathname: '/temp' }}>FV 1</Link>
+                                    <Tr><Link style={{paddingLeft: "5%"}}to={{ pathname: '/temp' }}>FV 1</Link>
                                     <Td className="livetemp">{temp}  &deg;F</Td></Tr>
                                 {this.state.tanks.map(tank => (
                                     <Tr key={tank.id}>
@@ -98,6 +103,14 @@ const SignOut = styled.button `
   margin-top: -65px;
   margin-left: 15px;
   color: yellow;
+`
+
+const Notification = styled.button`
+    border-radius: 65px;
+    background-color: #185875;
+    margin-top: 5px;
+    margin-left: 347px;
+    color: yellow;
 `
 
 const Container = styled.section`
