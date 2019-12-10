@@ -1,32 +1,32 @@
-// import firebase from 'firebase';
+import firebase from 'firebase';
 
 
-// export const initializeFirebase = () => {
-//     firebase.initializeApp({
-//     messagingSenderId: "355631466975"
-//   });
-// }
+export const initializeFirebase = () => {
+    firebase.initializeApp({
+    messagingSenderId: "355631466975"
+  });
+}
 
-// navigator.serviceWorker
-//     .register('../public/firebase-messaging-sw.js')
-//     .then((register) => {
-//       firebase.messaging().useServiceWorker(register);
-//     });
+navigator.serviceWorker
+    .register('../public/firebase-messaging-sw.js')
+    .then((register) => {
+      firebase.messaging().useServiceWorker(register);
+    });
 
-//   export const askForPermissionToReceiveNotifications = async () => {
-//     try {
+  export const askForPermissionToReceiveNotifications = async () => {
+      try {
+          console.log("test");
+          const messaging = firebase.messaging();
+          
+          await messaging.requestPermission();
+          const token = await messaging.getToken();
+          console.log('user token: ', token);
   
-//       const messaging = firebase.messaging();
-  
-//       await messaging.requestPermission();
-//       const token = await messaging.getToken();
-//       console.log('user token: ', token);
-  
-//       return token;
-//     } catch (error) {
-//       console.error(error);
-//     }
-//   }
+      return token;
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
 // const messageOne = {
 //     to: 'registration_token', 

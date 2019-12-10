@@ -3,6 +3,7 @@ import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import Tank from "./components/Tanks/Tanks";
 import Temp from "./components/Tanks/Temp";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { askForPermissionToReceiveNotifications } from './push-notifications';
 const firebase = require("firebase");
 require("firebase/firestore");// Required for side-effects
 
@@ -30,6 +31,11 @@ class App extends Component {
 
     render() {
         return (
+            <>
+            <button onClick={askForPermissionToReceiveNotifications} >
+            Click here to receive notifications
+          </button>
+          
 
             <div className="signup">
                 {this.state.isSignedIn ? (
@@ -49,8 +55,9 @@ class App extends Component {
                         />
                     )}
             </div>
-
+            </>
         )
+
     }
 
 }
