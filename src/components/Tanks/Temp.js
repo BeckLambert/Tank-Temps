@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import * as firebase from 'firebase';
+import { Link } from 'react-router-dom';
+
 
 
 class Temp extends Component {
@@ -32,7 +34,7 @@ class Temp extends Component {
       <>
      
       <SignOut onClick={handleSignOut} type="submit"  className="btn btn">Sign Out</SignOut>
-      <Tanks type="submit"  className="btn btn">Tanks</Tanks>
+      <Tanks type="submit"  className="btn btn"><Link to="/tank">Tanks</Link></Tanks>
 
 
       
@@ -74,8 +76,7 @@ width: 105px;
 `
 const Tanks = styled.button `
 border-radius: 65px;
-background-color: #185875;
+background-color: yellow;
 margin-top: 5px;
 margin-left: 10px;
-color: yellow;
 `
