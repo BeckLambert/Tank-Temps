@@ -1,9 +1,9 @@
-import React, { Component, Route } from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import * as firebase from 'firebase';
 
 
-class Temp extends React.Component {
+class Temp extends Component {
   constructor(props) {
     super(props);
     this.state = {value: ''};
@@ -30,10 +30,10 @@ class Temp extends React.Component {
 
     return (
       <>
-      <div className="col-sm-2">
+     
       <SignOut onClick={handleSignOut} type="submit"  className="btn btn">Sign Out</SignOut>
-      <Tanks onClick={<Route exact path='/tank'/>} type="submit"  className="btn btn">Tanks</Tanks>
-      </div>
+      <Tanks type="submit"  className="btn btn">Tanks</Tanks>
+
 
       
       <Form onSubmit={this.handleSubmit}>
@@ -58,30 +58,24 @@ class Temp extends React.Component {
 export default Temp
 
 
+// STYLED COMPONENTS 
 
-
-const Submit = styled.button `
-  margin-top: 10px;
-  background-color: grey;
-  border-radius: 25px;
-  height:35px;
-  width: 75px;
-`
 const Form = styled.form`
-    margin-top: 35px;
+    margin-top: 55px;
 `
 
 const SignOut = styled.button `
-  border-radius: 65px;
-  background-color: #185875;
-  color: yellow;
-  margin-top: -65px;
-  margin-left: 5px;
+border-radius: 45px;
+background-color: #185875;
+margin-top:  5px;
+margin-left: 485px;
+color: yellow;
+width: 105px;
 `
 const Tanks = styled.button `
 border-radius: 65px;
 background-color: #185875;
-margin-top: 1px;
-margin-left: 5px;
+margin-top: 5px;
+margin-left: 10px;
 color: yellow;
 `

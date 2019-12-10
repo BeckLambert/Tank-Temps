@@ -61,16 +61,16 @@ class Tank extends Component {
         return (
             <>
                 <SignOut onClick={handleSignOut} type="submit"  className="btn btn">Sign Out</SignOut>
-                <Notification onClick={askForPermissionToReceiveNotifications} >
+                <Notification onClick={askForPermissionToReceiveNotifications} type="submit" className="btn btn">
                     Click here to receive notifications
                 </Notification>
 
                 <Container>
                     <div className="col-md-8">
-                        <table colSpan="4" striped bordered hover variant="dark">
+                        <table>
                             <thead>
-                                <Th>Display Name</Th>
-                                <ThOne>Tempurature</ThOne>
+                                <Th>Tank</Th>
+                                <ThOne>Temperature</ThOne>
                             </thead>
                             <tbody>
                                     <Tr><Link style={{paddingLeft: "5%"}}to={{ pathname: '/temp' }}>FV 1</Link>
@@ -100,8 +100,8 @@ export default Tank
 const SignOut = styled.button `
   border-radius: 65px;
   background-color: #185875;
-  margin-top: -65px;
-  margin-left: 15px;
+  margin-top:  5px;
+  margin-left: 400px;
   color: yellow;
 `
 
@@ -109,7 +109,7 @@ const Notification = styled.button`
     border-radius: 65px;
     background-color: #185875;
     margin-top: 5px;
-    margin-left: 347px;
+    margin-left: 10px;
     color: yellow;
 `
 
